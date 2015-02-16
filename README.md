@@ -2,11 +2,9 @@
 
 It's a really simple ServiceWorker example. No build systems, (almost) no dependencies. It's designed to be an interactive introduction to the kinds of things you can do with ServiceWorker.
 
-# Exercises
-
 ## 1. Get it running locally
 
-Either clone it via git, or just [grab the zip file](https://github.com/jakearchibald/simple-serviceworker-tutorial/archive/gh-pages.zip).
+Either clone it via git, or just [grab the zip file](jakearchibald/simple-serviceworker-tutorial/archive/gh-pages.zip).
 
 If you already run a web server locally, put the files there. Or you can run a web server from the terminal for the current directory by installing [node.js](http://nodejs.org/) and running:
 
@@ -21,15 +19,15 @@ Visit the site in Chrome, open the dev tools and look at the console. Once you r
 
 Disable your internet connection & shut down your local web server.
 
-If you refresh the page, it still works, even through you're offline! Well, one of the pictures has failed, but we can fix that soon.
+If you refresh the page, it still works, even through you're offline! Well, one of the pictures failed, but we'll fix that shortly.
 
-Take a look at the code in `index.html` and `sw.js`, work out how it's put together.
+Take a look at the code in `index.html` and `sw.js`, hopefully the comments make it easy to follow.
 
-Chrome's devtools comes with [network emulation](https://developer.chrome.com/devtools/docs/device-mode#network-conditions). Unfortunately the settings here only apply to the tab and don't apply to the ServiceWorker. [Star this ticket](https://code.google.com/p/chromium/issues/detail?id=444820) to be notified when the fix lands.
+Chrome's devtools comes with [network emulation](https://developer.chrome.com/devtools/docs/device-mode#network-conditions). Unfortunately those settings only apply to the tab, not to the ServiceWorker. [Star this ticket](https://code.google.com/p/chromium/issues/detail?id=444820) to be notified when a fix for this lands in Chrome.
 
 ## 3. Fixing that image
 
-The `install` event in the ServiceWorker is setting up the cache, but it's missing a reference to that second image. Add it to the array. The URL is `ice-cream.jpg`. It doesn't need to be a no-cors request like the Flickr image, because it's on the same origin.
+The `install` event in the ServiceWorker is setting up the cache, but it's missing a reference to that second image. Add it to the array. The URL is `ice-cream.jpg`. It doesn't need to be a no-cors request like the Flickr image because it's on the same origin.
 
 Make sure you're online, refresh the page & watch the console. The browser checks for updates to the ServiceWorker script, if anything in the file has changed it considers it to be a new version. The new version is been picked up, but it isn't ready to use.
 
@@ -37,7 +35,7 @@ If you open a new tab and go to `chrome://serviceworker-internals` you'll see bo
 
 ![serviceworker-internals](doc-imgs/internals.png)
 
-**Not seeing the new worker?** It could be that your server send the original JS with a far-future `max-age` or similar caching header. Instead, use the node server mentioned in exercise 1 instead.
+**Not seeing the new worker?** It could be that your server sent the original worker with a far-future `max-age` or similar caching header. Instead, use the node server mentioned in exercise 1 instead.
 
 Follow the instructions in the page's console to get the new version working.
 
