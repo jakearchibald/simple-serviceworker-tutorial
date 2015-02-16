@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Super Simple ServiceWorker</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Super simple ServiceWorker</h1>
+    <p>This is some text.</p>
+    <p>And now, a picture of a cat from Flickr:</p>
+    <img src="https://farm5.staticflickr.com/4072/4228990446_c16ae1fee5.jpg" alt="A cat">
+    <p>And now, a picture of an obscene ice-cream:</p>
+    <img src="ice-cream.jpg" alt="Disgusting.">
+    <script>
+      // Let's register for our serviceworker
+      navigator.serviceWorker.register('sw.js', {
+        // The scope cannot be wider than the script url
+        scope: './'
+      });
+    </script>
+    <script src="logging.js"></script>
+  </body>
+</html>
