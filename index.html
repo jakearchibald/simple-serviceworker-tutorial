@@ -8,14 +8,14 @@
   <body>
     <h1>Super simple ServiceWorker</h1>
     <p>This is some text.</p>
-    <p>And now, a picture of a cat from Flickr:</p>
-    <img src="https://farm5.staticflickr.com/4072/4228990446_c16ae1fee5.jpg" alt="A cat">
     <p>And now, a picture of an obscene ice-cream:</p>
-    <img src="ice-cream.jpg" alt="Disgusting.">
+    <img src="https://farm6.staticflickr.com/5594/14749918329_888df4f2ef.jpg" alt="Ew">
+    <p>And now, some content added via JavaScript:</p>
+    <script src="script.js"></script>
     <script>
-      // Let's register for our serviceworker
+      // Let's register our serviceworker
       navigator.serviceWorker.register('sw.js', {
-        // The scope cannot be wider than the script url
+        // The scope cannot be parent to the script url
         scope: './'
       });
     </script>

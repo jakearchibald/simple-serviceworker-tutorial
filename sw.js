@@ -19,7 +19,7 @@ self.addEventListener('install', function(event) {
         // Cache resources can be from other origins.
         // This is a no-cors request, meaning it doesn't need
         // CORS headers to be stored in the cache
-        new Request('https://farm5.staticflickr.com/4072/4228990446_c16ae1fee5.jpg', {mode: 'no-cors'})
+        new Request('https://farm6.staticflickr.com/5594/14749918329_888df4f2ef.jpg', {mode: 'no-cors'})
       ]);
     })
   );
