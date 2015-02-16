@@ -6,11 +6,10 @@ It's a really simple ServiceWorker example. No build systems, (almost) no depend
 
 Either clone it via git, or just [grab the zip file](jakearchibald/simple-serviceworker-tutorial/archive/gh-pages.zip).
 
-If you already run a web server locally, put the files there. Or you can run a web server from the terminal for the current directory by installing [node.js](http://nodejs.org/) and running:
+If you already run a web server locally, put the files there. Or you can run a web server from the terminal for the current directory by using [Python](https://www.python.org/downloads/):
 
 ```sh
-npm install http-server -g
-http-server -c-1
+python -m SimpleHTTPServer
 ```
 
 Visit the site in Chrome, open the dev tools and look at the console. Once you refresh the page, it'll be under the ServiceWorker's control.
