@@ -15,6 +15,8 @@ http-server -c-1
 
 Visit the site in Chrome (`http://localhost:8080` if you used the script above). Open the dev tools and look at the console. Once you refresh the page, it'll be under the ServiceWorker's control.
 
+**You can reset the SW & caches at any point** by navigating to `reset/`. That will unregister the ServiceWorker & clear all the caches.
+
 ## 2. Go offline
 
 Disable your internet connection & shut down your local web server.

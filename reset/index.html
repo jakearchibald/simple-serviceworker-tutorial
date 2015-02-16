@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reset ServiceWorker</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../style.css">
+  </head>
+  <body>
+    <h1>Resetting ServiceWorker</h1>
+    <script>
+      (function() {
+        if (/reset$/.test(location.pathname)) {
+          location.href = 'reset/';
+          return;
+        }
+        function log(msg) {
+          var p = document.createElement('p');
+          p.textContent = msg;
+          document.body.appendChild(p);
+        }
+        // Let's register our serviceworker
+        navigator.serviceWorker.getRegistration('../').then(function(reg) {
+          log('Unregistering ServiceWorker');
+          return reg && reg.unregister();
+        }).then(function() {
+          return navigator.serviceWorker.getRegistration();
+        }).then(function(reg) {
+          return reg && reg.unregister();
+        }).then(function(reg) {
+          log('Clearing caches');
+          return navigator.serviceWorker.register('sw.js', {
+            scope: './'
+          })
+        }).then(function(reg) {
+          reg.addEventListener('updatefound', function() {
+            var installing = reg.installing;
+            reg.installing.addEventListener('statechange', function() {
+              if (installing.state == 'installed') {
+                log('Done!');
+                reg.unregister();
+              }
+            });
+          });
+        });
+      }());
+    </script>
+  </body>
+</html>
