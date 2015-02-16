@@ -1,14 +1,14 @@
 # What is this?
 
-It's a really simple ServiceWorker example. No build systems, (almost) no dependencies.
+It's a really simple ServiceWorker example. No build systems, (almost) no dependencies. It's designed to be an interactive introduction to the kinds of things you can do with ServiceWorker.
 
 # Exercises
 
 ## 1. Get it running locally
 
-Either clone it via git, or just grab the zip file from TODO.
+Either clone it via git, or just [grab the zip file](https://github.com/jakearchibald/simple-serviceworker-tutorial/archive/gh-pages.zip).
 
-If you already run a webserver locally, put the files there. Or you can run a web server from the terminal for the current directory by installing [node.js](http://nodejs.org/) and running:
+If you already run a web server locally, put the files there. Or you can run a web server from the terminal for the current directory by installing [node.js](http://nodejs.org/) and running:
 
 ```sh
 npm install http-server -g
@@ -19,13 +19,13 @@ Visit the site in Chrome, open the dev tools and look at the console. Once you r
 
 ## 2. Go offline
 
-The simplest way to go offline is using Chrome's device emulator.
-
-Alternatively, disable your internet connection & shut down your local web server.
+Disable your internet connection & shut down your local web server.
 
 If you refresh the page, it still works, even through you're offline! Well, one of the pictures has failed, but we can fix that soon.
 
 Take a look at the code in `index.html` and `sw.js`, work out how it's put together.
+
+Chrome's devtools comes with [network emulation](https://developer.chrome.com/devtools/docs/device-mode#network-conditions). Unfortunately the settings here only apply to the tab and don't apply to the ServiceWorker. [Star this ticket](https://code.google.com/p/chromium/issues/detail?id=444820) to be notified when the fix lands.
 
 ## 3. Fixing that image
 
@@ -35,7 +35,7 @@ Make sure you're online, refresh the page & watch the console. The browser check
 
 If you open a new tab and go to `chrome://serviceworker-internals` you'll see both the old & new worker listed.
 
-TODO picture
+![serviceworker-internals](doc-imgs/internals.png)
 
 **Not seeing the new worker?** It could be that your server send the original JS with a far-future `max-age` or similar caching header. Instead, use the node server mentioned in exercise 1 instead.
 
@@ -76,7 +76,7 @@ Here we're intercepting URLs that end `.jpg` and responding with a network fetch
 
 Refresh the page, watch the console, and once the new ServiceWorker is active, refresh again. Different images!
 
-## 6. URLs and manual responses
+## 6. Manual responses
 
 In the previous step, we handled all requests ending `.jpg`, but often you want finer control over which URLs you handle.
 
@@ -91,9 +91,7 @@ if (event.request.url === pageURL.href) {
 }
 ```
 
-Refresh the page, watch the console, and once the new ServiceWorker is active, refresh again. Different response!
-
-This is how you create responses manually!
+Refresh the page, watch the console, and once the new ServiceWorker is active, refresh again. Different response! This is how you create responses manually.
 
 # Further reading
 
