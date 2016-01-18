@@ -9,8 +9,8 @@ Either clone it via git, or just [grab the zip file](https://github.com/jakearch
 If you already run a web server locally, put the files there. Or you can run a web server from the terminal for the current directory by installing [node.js](http://nodejs.org/) and running:
 
 ```sh
-npm install http-server -g
-http-server -c-1
+npm install
+npm start
 ```
 
 Visit the site in Chrome (`http://localhost:8080` if you used the script above). Open the dev tools and look at the console. Once you refresh the page, it'll be under the ServiceWorker's control.
