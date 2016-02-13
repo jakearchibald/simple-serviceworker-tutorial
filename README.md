@@ -25,8 +25,6 @@ If you refresh the page, it still works, even through you're offline! Well, we'r
 
 Take a look at the code in `index.html` and `sw.js`, hopefully the comments make it easy to follow.
 
-Chrome's devtools comes with [network emulation](https://developer.chrome.com/devtools/docs/device-mode#network-conditions). Unfortunately those settings only apply to the tab, not to the ServiceWorker. [Star this ticket](https://code.google.com/p/chromium/issues/detail?id=444820) to be notified when a fix for this lands in Chrome.
-
 ## 3. Fixing that script
 
 The `install` event in the ServiceWorker is setting up the cache, but it's missing a reference to the script that adds the paragraph to the page. Add it to the array. The URL is `script.js`. It doesn't need to be a no-cors request like the Flickr image because it's on the same origin.
