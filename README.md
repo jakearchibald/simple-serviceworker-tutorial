@@ -1,6 +1,6 @@
 # What is this?
 
-It's a really simple ServiceWorker example. No build systems, (almost) no dependencies. It's designed to be an interactive introduction to the kinds of things you can do with ServiceWorker.
+It's a really [simple ServiceWorker example](https://jakearchibald.github.io/simple-serviceworker-tutorial/). No build systems, (almost) no dependencies. It's designed to be an interactive introduction to the kinds of things you can do with ServiceWorker.
 
 ## 1. Get it running locally
 
